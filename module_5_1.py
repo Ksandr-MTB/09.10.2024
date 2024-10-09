@@ -16,22 +16,71 @@ class House:
     def __str__(self):
         print(f'Название: {self.name}, кол-во этажей: {self.number_of_floors}')
 
+    def __eq__(self, other):
+        return self.number_of_floors == other.number_of_floors
+
+    def __add__(self, value):
+        self.number_of_floors += value
+        # print(f'Высота {self.name} увеличилось на {value} этажей')
+
+    def __lt__(self, other):
+        return self.number_of_floors < other.number_of_floors
+
+    def __le__(self, other):
+        return self.number_of_floors <= other.number_of_floors
+
+    def __gt__(self, other):
+        return self.number_of_floors > other.number_of_floors
+
+    def __ge__(self, other):
+        return self.number_of_floors >= other.number_of_floors
+
+    def __ne__(self, other):
+        return self.number_of_floors != other.number_of_floors
 
 
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
-h1.go_to(5)
-h2.go_to(10)
+# h1.go_to(5)
+# h2.go_to(10)
 h1.__str__()
 h2.__str__()
-h1.__len__()
-h2.__len__()
+# h1.__len__()
+# h2.__len__()
 
-# print(h1.name, h1.number_of_floors)
-# print(h2.name, h2.number_of_floors)
 
-# def exponentiation(n):
-#     print(n ** 2, n ** 3)
+print(h1 == h2)
+h1.__add__(10)
+h1.__str__()
+print(h1 == h2)
+h1.__add__(10)
+h1.__str__()
+h2.__add__(10)
+h2.__str__()
+
+print(h1 > h2)
+print(h1 >= h2)
+print(h1 < h2)
+print(h1 <= h2)
+print(h1 != h2)
+
+
+
+
+
+
+
+
+
+
 #
+# def get_body_mass_index(m, h):
+#     index=m/((h/100)**2)
+#     if index<18.5:
+#         print('Недостаточная масса тела')
+#     elif 18.5<index<25:
+#         print('Норма')
+#     elif 25<index:
+#         print('Избыточная масса тела')
 #
-# exponentiation(5)
+# get_body_mass_index(70, 170)
