@@ -4,6 +4,7 @@ class User:
         self.password = password
         self.age = age
 
+
 class Video:
     videos = []
     time_video = {}
@@ -19,6 +20,7 @@ class Video:
         self.time_video[title] = time_now
         self.adult_video[title] = adult_mode
         self.duration_video[title] = duration
+
 
 class UrTube:
     users = []
@@ -47,8 +49,6 @@ class UrTube:
         for i in range(len(args)):
             if args[i] not in self.videos:
                 self.videos.append(args[i])
-            else:
-                pass
 
     def get_videos(self, name):
         name_video_list = []
@@ -62,13 +62,22 @@ class UrTube:
             if self.current_user != False:
                 if Video.adult_video[name_video] == True:
                     if self.age_user[self.current_user] > 17:
-                        print('1 2 3 4 5 6 7 8 9 10 Конец видео')
+                        import time
+                        for i in range(1, Video.duration_video[name_video] + 1):
+                            print(i, end=' ')
+                            time.sleep(1)
+                        print("Конец видео.")
                     else:
                         print("Вам нет 18 лет, пожалуйста покиньте страницу")
                 else:
-                    print('1 2 3 4 5 6 7 8 9 10 Конец видео')
+                    import time
+                    for i in range(1, Video.duration_video[name_video] + 1):
+                        print(i, end=' ')
+                        time.sleep(1)
+                    print("Конец видео.")
             else:
                 print('Войдите в аккаунт, чтобы смотреть видео')
+
 
 ur = UrTube()
 v1 = Video('Лучший язык программирования 2024 года', 200)
